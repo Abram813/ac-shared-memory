@@ -320,9 +320,11 @@ These are deliberately separate:
 | Environment | OS / architecture | Python | uv | Result |
 | --- | --- | --- | --- | --- |
 | Local development | macOS 26.6.2, arm64 (Apple M1 Pro) | 3.14.2 | 0.13.7 | 43 passed, 4 skipped; smoke passed; demo feedback passed |
-| GitHub Actions `windows-x64` | pending CI | 3.12 | 0.13.7 | pending CI |
-| GitHub Actions `macos-arm64` | pending CI | 3.12 | 0.13.7 | pending CI |
-| GitHub Actions `macos-x64` | pending CI | 3.12 | 0.13.7 | pending CI |
+| GitHub Actions `windows-x64` | Windows Server 2025, x86_64 (AMD64) | 3.12.10 | 0.13.7 | 44 passed, 3 skipped (Windows fake mappings ran); smoke passed |
+| GitHub Actions `macos-arm64` | macOS 15.8.2, arm64 (Apple Silicon) | 3.12.10 | 0.13.7 | 43 passed, 4 skipped (Windows mappings skipped); smoke passed |
+| GitHub Actions `macos-x64` | macOS 15.7.9, x86_64 (Intel) | 3.12.10 | 0.13.7 | 43 passed, 4 skipped (Windows mappings skipped); smoke passed |
+
+CI run: [43295343728](https://github.com/Abram813/ac-shared-memory/actions/runs/43295343728), commit `4d1beac`. The environment artifacts show the executable path inside `fresh clone/accapture`, confirming the path-with-spaces run. Verified Mac architectures: Apple Silicon arm64 and Intel x86_64.
 
 The CI jobs clone the repository into a directory whose name contains spaces
 (`fresh clone/accapture`), then run `uv sync --all-groups`, the offline tests,
