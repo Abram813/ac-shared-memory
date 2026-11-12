@@ -1,0 +1,32 @@
+[project]
+name = "accapture"
+version = "0.1.0"
+description = "Windows shared-memory lap capture for Assetto Corsa and Assetto Corsa Competizione"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Abram" }]
+dependencies = []
+
+[project.scripts]
+accapture = "accapture.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/accapture"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+  "windows: requires Windows shared-memory mappings",
+]
+
+[tool.uv]
+default-groups = ["dev"]
