@@ -320,11 +320,12 @@ These are deliberately separate:
 | Environment | OS / architecture | Python | uv | Result |
 | --- | --- | --- | --- | --- |
 | Local development | macOS 26.6.2, arm64 (Apple M1 Pro) | 3.14.2 | 0.13.7 | 43 passed, 4 skipped; smoke passed; demo feedback passed |
+| Local fresh clone with spaces | macOS 26.6.2, arm64 (Apple M1 Pro) | 3.14.2 | 0.13.7 | 43 passed, 4 skipped; smoke passed; `record --demo` and 5-zone feedback passed |
 | GitHub Actions `windows-x64` | Windows Server 2025, x86_64 (AMD64) | 3.12.10 | 0.13.7 | 44 passed, 3 skipped (Windows fake mappings ran); smoke passed |
 | GitHub Actions `macos-arm64` | macOS 15.8.2, arm64 (Apple Silicon) | 3.12.10 | 0.13.7 | 43 passed, 4 skipped (Windows mappings skipped); smoke passed |
 | GitHub Actions `macos-x64` | macOS 15.7.9, x86_64 (Intel) | 3.12.10 | 0.13.7 | 43 passed, 4 skipped (Windows mappings skipped); smoke passed |
 
-CI run: [43295343728](https://github.com/Abram813/ac-shared-memory/actions/runs/43295343728), commit `4d1beac`. The environment artifacts show the executable path inside `fresh clone/accapture`, confirming the path-with-spaces run. Verified Mac architectures: Apple Silicon arm64 and Intel x86_64.
+CI run: [43295553422](https://github.com/Abram813/ac-shared-memory/actions/runs/43295553422), commit `9bf21d6`. The environment artifacts show the executable path inside `fresh clone/accapture`, confirming the path-with-spaces run. Verified Mac architectures: Apple Silicon arm64 and Intel x86_64.
 
 The CI jobs clone the repository into a directory whose name contains spaces
 (`fresh clone/accapture`), then run `uv sync --all-groups`, the offline tests,
@@ -403,6 +404,10 @@ handover report. Do not describe packet-decoding tests as running-game tests.
 - No rows: the car may have been stationary, the game may have been paused, or
   the session may have ended before the minimum sample count was reached.
 
+## License
+
+MIT. See [LICENSE](LICENSE).
+
 ## Two-minute VS Code walkthrough
 
 1. Open the `ac-shared-memory` folder in VS Code.
@@ -428,7 +433,3 @@ handover report. Do not describe packet-decoding tests as running-game tests.
    `uv run accapture probe --game acc`, then
    `uv run accapture record --game acc --out "laps\practice lap.csv" --laps 1 --reference "laps\reference lap.csv"`.
    That is the complete capture-to-coaching loop.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
