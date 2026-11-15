@@ -64,9 +64,9 @@ Writing demo laps\session.csv
 Recording lap 1...
 Saved lap 1 (1201 samples).
 Recording lap 2...
-Saved lap 2 (1201 samples).
+Saved lap 2 (1202 samples).
 Reached the requested 2 completed lap(s).
-Recorded 2 completed lap(s), 0 partial lap(s), 2402 rows.
+Recorded 2 completed lap(s), 0 partial lap(s), 2403 rows.
 CSV: C:\...\demo laps\session.csv
 ```
 
